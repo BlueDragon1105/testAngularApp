@@ -18,7 +18,7 @@ export class ArticleCategoryComponent implements OnInit {
   }
 
   getModuleNameBySlug(slug) {
-    this.moduleName = this.apiService.getModuleNameBySlug(slug);
+    // this.moduleName = this.apiService.getModuleNameBySlug(slug);
   }
 
 }
