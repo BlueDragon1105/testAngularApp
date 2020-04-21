@@ -1,6 +1,6 @@
 {
   "info": [
-    {"slug": "", "moduleName": "home"},
+    {"slug": "home", "moduleName": "home"},
     {"slug": "article-category-title", "moduleName": "article-category"},
     {"slug": "article-category-title-2", "moduleName": "article-category"},
     {"slug": "article-title", "moduleName": "article-details"},

@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   private setSlugAndGetModuleNameBySlug() {
     this.route.params.subscribe((params: Params) => {
-      this.slug = params.slug || '';
+      this.slug = params.slug || 'home';
       this.apiService.getModuleNameBySlug(this.slug).subscribe((res:any) => {
         this.moduleName = res.moduleName;
         console.log('result ===>', res);
