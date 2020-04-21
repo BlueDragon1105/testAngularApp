@@ -1,0 +1,8 @@
+ul li {
+  display: inline;
+  font-size: 20px;
+  margin-right: 15px;
+  a.active {
+    color:red;
+  }
+}
