@@ -7,27 +7,12 @@ import {LayoutComponent} from "./components/layout/layout.component";
 
 const routes: Routes = [
   {
-    path: 'test',
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full',
-      },
-      {
-        path: 'home',
-        component: HomeComponent
-      },
-      {
-        path: 'article-details',
-        component: ArticleDetailsComponent
-      },
-      {
-        path: 'article-category',
-        component: ArticleCategoryComponent
-      },
-    ]
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: ':slug',
+    component: HomeComponent,
   }
 ];
 
