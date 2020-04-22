@@ -9,28 +9,10 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-  moduleName = '';
-  slug;
-
   constructor(
-    private apiService: ApiService,
-    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.setSlugAndGetModuleNameBySlug();
   }
-
-  private setSlugAndGetModuleNameBySlug() {
-    this.route.params.subscribe((params: Params) => {
-      this.slug = params.slug || 'home';
-      this.apiService.getModuleNameBySlug(this.slug).subscribe((res:any) => {
-        this.moduleName = res.moduleName;
-        console.log('result ===>', res);
-      })
-    });
-  }
-
-
 
 }

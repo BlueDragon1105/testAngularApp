@@ -8,17 +8,10 @@ import {ApiService} from "../../services/api.service";
 })
 export class ArticleDetailsComponent implements OnInit {
 
-  moduleName = '';
-
   constructor(
-    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
-  }
-
-  getModuleNameBySlug(slug) {
-    // this.moduleName = this.apiService.getModuleNameBySlug(slug);
   }
 
 }

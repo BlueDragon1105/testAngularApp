@@ -1,11 +1,5 @@
-<h1 class="text-center text-success p-5">Thanks for your attention on bid</h1>
+<h1 class="text-success text-center p-5">Test Angular Application</h1>
 
-<div class="container-fluid">
-  <ul>
-    <li><a routerLink="/test/home">Home</a></li>
-    <li><a routerLink="/test/article-category">Article Category</a></li>
-    <li><a routerLink="/test/article-details">Article Details</a></li>
-  </ul>
+<div class="alert alert-danger text-center" *ngIf="isNotFound">
+  Module Name Not Found
 </div>
-
-<router-outlet></router-outlet>
