@@ -1,5 +1,8 @@
 <h1 class="text-success text-center p-5">Test Angular Application</h1>
 
+<div *ngIf="loaded">
+  <ng-container *ngComponentOutlet="myComponent"></ng-container></div>
+
 <div class="alert alert-danger text-center" *ngIf="isNotFound">
   Module Name Not Found
 </div>

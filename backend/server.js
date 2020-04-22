@@ -15,7 +15,7 @@ app.get('/test', function(req, res){
 app.get('/slugApi/:slug', function(req, res){
     console.log('>>>>>', req.params);
     const {slug} = req.params;
-    const selectedItem = slugJson.info.find(item => item.slug === slug) || {moduleName: 'Module Name Not Found'};
+    const selectedItem = slugJson.info.find(item => item.slug === slug) || {moduleName: 'Not Found'};
     res.send(selectedItem);
 });
 

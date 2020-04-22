@@ -1,25 +1,33 @@
-import { NgModule } from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "../../components/home/home.component";
 
-const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  }
-];
+@Component({
+  selector: 'app-home',
+  template: `<p>Home works</p>`
+})
+
+export class HomeComponent {
+}
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HomeComponent
+  ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
   ],
-  exports: [RouterModule]
+  exports: [
+    HomeComponent
+  ],
+  entryComponents: [
+    HomeComponent
+  ]
 })
 
 export class HomeModule {
+  static components = {
+    home: HomeComponent
+  };
   constructor() {
     console.log('homeModule...');
   }
