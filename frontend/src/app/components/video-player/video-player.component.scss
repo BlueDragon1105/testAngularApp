@@ -1,0 +1,562 @@
+#video-player-container{
+  margin: 0;
+  padding: 0;
+  background-color: #222222;
+}
+#video-container{
+  display: block;
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#playlist-container{
+  display: block;
+  float: left;
+  width: 300px;
+  /* min-height: 620px; */
+  background-color: #222222;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+#video-container{overflow: hidden;}
+#video-player-container #video-container #video {
+  width: 100%;
+}
+.video-controls{
+  /* display: flex; */
+  position: absolute;
+  bottom: -46px;
+  /* -46px; */
+  width: 100%;
+  /* flex-wrap: wrap; */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* padding: 5px 0 5px 10px; */
+  transition: all 100ms;
+}
+.video-controls:hover{
+  bottom: 5px;
+}
+.buttons{
+  display: inline-block;
+}
+.left-buttons{
+  margin-top: 10px;
+  float: right;
+  display: flex;
+  flex-wrap: wrap;
+}
+.buttons > div{
+  margin: 7px 5px 3px 5px;
+}
+.buttons #play-pause {
+  color: #fff;
+  font-size: 30px;
+  transform: scale(0.5);
+}
+.buttons #play-pause:hover{
+  color: #0076ef;
+}
+#hover-activator{
+  position: absolute;
+  height: 42px;
+  width: 100%;
+  bottom: 100%;
+}
+#progress-bar{
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.4)
+}
+#progress-bar #current-progress{
+  background: rgb(0,118,239);
+  background: linear-gradient(180deg, rgba(0,118,239,1) 0%, rgba(0,118,239,1) 5%, rgba(255,255,255,1) 30%,  rgba(0,118,239,1) 100%);
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+  /* height: 9px;
+  margin-top: -2px; */
+  width: 0%;
+}
+#dot{
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  float: right;
+  margin-top: 0;
+  margin-right: 0;
+  background: rgb(0,118,239);
+  background: radial-gradient(circle, rgba(0,118,239,1) 0%, rgba(0,118,239,1) 30%, rgba(255,255,255,1) 100%);
+}
+#progress-bar:hover{
+  height: 8px;
+  transition: all 200ms;
+}
+// #progress-bar:hover #current-progress{
+//   height: 8px;
+//   transition: all 200ms;
+// }
+#progress-bar:hover div #dot{
+  width: 12px;
+  height: 12px;
+  margin-top: -2px;
+  margin-right: -4px;
+  transition:all 200ms;
+}
+
+#playpause{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 7px 10px -3px 10px;
+  position: relative;
+  /* transform: scale(0.9); */
+}
+#playpause:hover div#r1{
+  background-color: #0076ef;
+  transition: all 300ms 1ms;
+}
+#playpause:hover div#r2{
+  background-color: #0076ef;
+  transition: all 300ms 1ms;
+}
+#playpause:hover div#r3{
+  background-color: #0076ef;
+  transition: all 300ms 1ms;
+}
+#playpause:hover div#triangle{
+  border-right-color: #0076ef;
+  transition: all 300ms!important;
+}
+.play#playpause #r1 {
+  /* opacity: 0; */
+  width: 2px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  top:0;
+  left: 6px;
+  transition: all 300ms;
+}
+.play#playpause #r2 {
+  width: 2px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  top: -7px;
+  left: 18px;
+  transform: rotateZ(-60deg);
+  transition: all 300ms;
+}
+.play#playpause #r3 {
+  width: 2px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  top: 7px;
+  left: 18px;
+  transform: rotateZ(60deg);
+  transition: all 300ms;
+}
+.pause #r1{
+  /* opacity: 1; */
+  width: 6px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  top:0;
+  left: 6px;
+  transition: all 300ms;
+}
+.pause #r2{
+  width: 3px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 18px;
+  transform: rotateZ(0deg);
+  transition: all 300ms;
+}
+.pause #r3{
+  width: 3px;
+  height: 30px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 21px;
+  transform: rotateZ(0deg);
+  transition: all 300ms;
+}
+.play #triangle {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-right: 27px solid #fff;
+  border-bottom: 15px solid transparent;
+  transform: rotateZ(180deg);
+  position: absolute;
+  z-index: 5;
+  left: 5px;
+  opacity: 1;
+  transition: all 300ms;
+}
+.pause #triangle {
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-right: 7px solid #fff;
+  border-bottom: 15px solid transparent;
+  transform: rotateZ(180deg);
+  position: absolute;
+  z-index: 5;
+  left: 6px;
+  opacity: 0;
+  transition: all 300ms;
+}
+
+
+
+/* ============== VIDEO ICON================== */
+
+
+
+
+/* ===================== speed-icon ============== */
+.speed-icon{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-left: 7px;
+    /* background-color: #999; */
+    transition: all 300ms;
+}
+.speed-circle{
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid #fff;
+    border-right: 3px solid #fff;
+    border-right-style: dashed;
+    border-bottom: 2px solid transparent;
+    border-radius: 50%;
+    transform:rotate(-30deg);
+    position: relative;
+    transition: all 300ms;
+}
+
+.speed-icon .arrow {
+  width: 0;
+  height: 0;
+  border-top: 2px solid transparent;
+  border-right: 18px solid #fff;
+  border-bottom: 2px solid transparent;
+  transform-origin: 100% 50% 0;
+  transform: rotate(35deg);
+  position: absolute;
+  z-index: 5;
+  left: -3px;
+  bottom: 11px;
+  transition: all 300ms;
+}
+.speed-icon .dot {
+  width: 7px;
+  height: 7px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 9px;
+  left: 11px;
+  transition: all 300ms;
+}
+
+.speed-icon:hover div.dot{
+  background-color: #0076ef;
+  transition: all 300ms;
+}
+
+.speed-icon:hover div.speed-circle{
+  border-top-color: #0076ef;
+  border-right-color: #0076ef;
+  transition: all 300ms;
+}
+
+.speed-icon:hover div.arrow{
+  border-right-color: #0076ef;
+  transform: rotate(120deg);
+  transition: all 300ms;
+  -webkit-animation: speed-hover-arrow 2000ms 300ms infinite; /* Safari 4+ */
+  -moz-animation:    speed-hover-arrow 2000ms 300ms infinite; /* Fx 5+ */
+  -o-animation:      speed-hover-arrow 2000ms 300ms infinite; /* Opera 12+ */
+  animation:         speed-hover-arrow 2000ms 300ms infinite; /* IE 10+, Fx 29+ */
+}
+
+@keyframes speed-hover-arrow {
+  0% {
+      transform: rotate(120deg);
+  }
+  50% {
+      transform: rotate(170deg);
+  }
+  70% {
+      transform: rotate(130deg);
+  }
+  80% {
+      transform: rotate(150deg);
+  }
+  100% {
+      transform: rotate(120deg);
+  }
+}
+
+.speed-input{
+  width: 0;
+  height: 30px;
+
+  display: inline-block;
+  // background-color: red;
+  overflow: hidden;
+  transition: all 200ms;
+}
+.speed-control:hover .speed-input{
+  width: 100px;
+  margin: 0 10px;
+  padding-right: 5px;
+}
+
+.speed-input input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100px; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+.speed-input input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.speed-input input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.speed-input input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #010101;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -4px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ /* Add cool effects to your sliders! */
+}
+
+.speed-input input[type=range]::-moz-range-thumb { /* All the same stuff for Firefox */
+  border: 1px solid #010101;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.speed-input input[type=range]::-ms-thumb { /* All the same stuff for IE */
+  border: 1px solid #010101;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+
+.speed-input input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(255,255,255, );
+
+  border-radius: 1.3px;
+}
+
+.speed-input input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(50%, rgba(0,171,239,1)), color-stop(100%, rgba(255,21,0,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ff1500', GradientType=1 );
+}
+
+.speed-input input[type=range]::-moz-range-track {
+  width: 100px;
+  height: 4px;
+  cursor: pointer;
+  background: #00adef;
+  border-radius: 1.3px;
+}
+
+.speed-input input[type=range]::-ms-track {
+  width: 100px;
+  height: 4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.speed-input input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border-radius: 50%;
+}
+.speed-input input[type=range]:focus::-ms-fill-lower {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(61%, rgba(0,171,239,1)), color-stop(100%, rgba(255,21,0,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ff1500', GradientType=1 );
+}
+.speed-input input[type=range]::-ms-fill-upper {
+  background: #00adef;
+  border-radius: 50%;
+}
+.speed-input input[type=range]:focus::-ms-fill-upper {
+  background: #00adef;
+}
+
+/* ================= Full screen icon =================== */
+
+.full-screen{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    font-size: 28px;
+    line-height: 28px;
+    color: #fff;
+    margin: 0 10px 0 7px;
+    text-align: center;
+    transition: all 300ms;
+}
+.full-screen:hover{
+    color: #0076ef;
+    font-size: 32px;
+    line-height: 28px;
+    margin: -3px 10px 7px 7px;
+    transition: all 300ms;
+}
+
+/* ==================== video settings =============== */
+.video-settings{
+  margin-top: -3px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  color: #fff;
+  margin-left: 20px;
+  transition: all 300ms;
+  position: relative;
+}
+.video-settings #cog1 {
+  color: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 19px;
+  transform: rotate(0deg);
+}
+
+.video-settings #cog2 {
+  position: absolute;
+  left: 11px;
+  bottom: 16px;
+  font-size: 13px;
+  transform: rotate(35deg);
+}
+
+.video-settings:hover {
+   color: #0076ef;
+}
+
+.video-settings:hover #cog1{
+  -webkit-animation: settings-hover-cog1 2000ms infinite;
+  -moz-animation:    settings-hover-cog1 2000ms infinite;
+  -o-animation:      settings-hover-cog1 2000ms infinite;
+  animation:         settings-hover-cog1 2000ms infinite;
+}
+.video-settings:hover #cog2{
+  -webkit-animation: settings-hover-cog2 2000ms infinite;
+  -moz-animation:    settings-hover-cog2 2000ms infinite;
+  -o-animation:      settings-hover-cog2 2000ms infinite;
+  animation:         settings-hover-cog2 2000ms infinite;
+}
+
+@keyframes settings-hover-cog1 {
+  0% {
+      transform: rotate(0deg);
+  }
+  50% {
+      transform: rotate(60deg);
+  }
+  60% {
+      transform: rotate(60deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes settings-hover-cog2 {
+  0% {
+      transform: rotate(35deg);
+  }
+  50% {
+      transform: rotate(-90deg);
+  }
+  60% {
+      transform: rotate(-90deg);
+  }
+  100% {
+      transform: rotate(-390deg);
+  }
+}
+
+/* next previous */
+  .next-video{
+      display: inline-block;
+      font-size: 28px;
+      line-height: 30px;
+      color: #fff;
+  }
+
+  .previous-video{
+      display: inline-block;
+      font-size: 28px;
+      line-height: 30px;
+      color: #fff;
+  }
+
+  .next-video:hover{
+      color: #0076ef;
+      transition: all 300ms;
+  }
+
+  .previous-video:hover{
+      color: #0076ef;
+      transition: all 300ms;
+  }

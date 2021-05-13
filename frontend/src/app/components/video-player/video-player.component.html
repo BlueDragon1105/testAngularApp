@@ -1,0 +1,66 @@
+<div id='video-player-container' *ngIf="playlist">
+  <div id="video-container">
+      <video id='video' [src]="playlist.activeLesson.videoUrl" autoplay='true' volume='0.5' #video></video>
+      <div class="video-controls" id="video-controls">
+          <div id='hover-activator'>
+              <div id='progress-bar'>
+                  <div id='current-progress' #currentProgress>
+                      <div id='dot' #progressDot (mousedown)="onProgressDotMouseDown($event)" ></div>
+                  </div>
+              </div>
+          </div>
+          <div class="buttons">
+
+              <div class="previous-video" id='previous-video' (click)="goToPrevious()" *ngIf="playlist.previousLesson">
+                  <i class="fas fa-step-backward"></i>
+              </div>
+
+                <div class="pause" id='playpause' (click)="playPause()">
+                    <div id='r1'></div>
+                    <div id='r2'></div>
+                    <div id='r3'></div>
+                    <div id="triangle"></div>
+                </div>
+
+              <div class="next-video" id='next-video' (click)="goToNext()" *ngIf="playlist.nextLesson">
+                  <i class="fas fa-step-forward"></i>
+              </div>
+            <div class="sound-control">
+              <div class="sound" id='sound' (click)="muteUnmute()" >
+                  <div class="sound--icon fa fa-volume-off"></div>
+                  <div class="sound--wave sound--wave_one"></div>
+                  <div class="sound--wave sound--wave_two"></div>
+              </div>
+              <div class="sound-input">
+                <input type="range" id="volume" name="vol" min="0" max="100" value="100" (mousedown)="onVolumeMouseDown($event)" (change)="updateVolume()" (mouseup)="removeVolumeChangeEvent()" #volume>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="left-buttons">
+              <div class="speed-control">
+                <div class="speed-icon">
+                    <div class="speed-circle">
+                        <div class="arrow"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="speed-input">
+                  <input type="range" id="vol" name="playback" min="5" max="30" value="10" (mousedown)="onPlaybackRateChange()" (change)="updatePlaybackRate()" (mouseup)="removePlaybackRateChangeEvent()" #playbackRate>
+                </div>
+              </div>
+              <div class="video-settings">
+                <i class="fas fa-cog" id='cog1'></i>
+                <i class="fas fa-cog" id='cog2'></i>
+              </div>
+
+              <div class="full-screen" id='full-screen' (click)="expandCompress()">
+<!--                  <div style="font-size: 14px; line-height: 12px;">{{isFullscreen}}</div>-->
+                  <i [ngClass]="isFullscreen ? 'fas fa-compress' : 'fas fa-expand'" ></i>
+          </div>
+
+          </div>
+      </div>
+  </div>
+</div>

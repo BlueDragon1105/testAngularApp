@@ -1,18 +1,10 @@
 import {Component, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-@Component({
-  selector: 'app-article-details',
-  template: `<p>Article-details works</p>`
-})
-
-export class ArticleDetailsComponent {
-}
+import { ArticleDetailsComponent } from './article-details.component';
 
 @NgModule({
   declarations: [
-    ArticleDetailsComponent
-  ],
+  ArticleDetailsComponent],
   imports: [
     CommonModule,
   ],
