@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {VideoPlayerComponent} from "./components/video-player/video-player.component";
 
 const routes: Routes = [
   // {
@@ -18,15 +19,14 @@ const routes: Routes = [
   //   import('./modules/article-category/article-category.module').then((mod) => mod.ArticleCategoryModule)
   // },
   {
-    path: "",
-    loadChildren: () =>
-    import("./modules/url-handler/url-handler.module").then((mod) => mod.UrlHandlerModule),
+    path: 'video',
+    component: VideoPlayerComponent
   },
-  {
-    path: ":slug",
-    loadChildren: () =>
-    import("./modules/url-handler/url-handler.module").then((mod) => mod.UrlHandlerModule),
-  },
+  // {
+  //   path: ":slug",
+  //   loadChildren: () =>
+  //   import("./modules/url-handler/url-handler.module").then((mod) => mod.UrlHandlerModule),
+  // },
 ];
 
 @NgModule({

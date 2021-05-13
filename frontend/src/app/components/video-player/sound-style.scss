@@ -1,0 +1,190 @@
+.sound-control{
+  display: inline-block;
+}
+.sound {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 300ms;
+  margin-bottom: -4px!important;
+}
+.sound svg{
+  color: #fff;
+  transition: all 300ms;
+}
+
+.sound:hover svg{
+  color: #0076ef;
+  transition: all 300ms;
+}
+
+.sound:hover div{
+  border-right-color: #0076ef;
+  transition: all 300ms;
+}
+.sound--icon {
+  color: #fff;
+  width: 75%;
+  height: 100%;
+  line-height: 100%;
+  font-size: 30px;
+  display: block;
+  margin: auto;
+}
+.sound--wave {
+  position: absolute;
+  border: 2px solid transparent;
+  border-right: 2px solid #fff;
+  border-radius: 50%;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.sound--wave_one {
+  width: 100%;
+  height: 100%;
+}
+.sound--wave_two {
+  width: 80%;
+  height: 75%;
+}
+.sound-mute .sound--wave {
+  margin-left: 10px;
+  border-radius: 0;
+  width: 60%;
+  height: 60%;
+  border-width: 0 2px 0 0;
+}
+.sound-mute .sound--wave_one {
+  -webkit-transform: rotate(45deg) translate3d(0, -50%, 0);
+          transform: rotate(45deg) translate3d(0, -50%, 0);
+}
+.sound-mute .sound--wave_two {
+  -webkit-transform: rotate(-45deg) translate3d(0, 50%, 0);
+          transform: rotate(-45deg) translate3d(0, 50%, 0);
+}
+
+.sound-input{
+  width: 0;
+  height: 30px;
+  margin: 0 0 -6px 10px;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 200ms;
+}
+.sound-control:hover .sound-input{
+  width: 100px;
+}
+
+.sound-input input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100px; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+.sound-input input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.sound-input input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.sound-input input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #010101;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -4px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ /* Add cool effects to your sliders! */
+}
+
+.sound-input input[type=range]::-moz-range-thumb { /* All the same stuff for Firefox */
+  border: 1px solid #010101;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.sound-input input[type=range]::-ms-thumb { /* All the same stuff for IE */
+  border: 1px solid #010101;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+
+.sound-input input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: rgba(255,255,255, );
+
+  border-radius: 1.3px;
+}
+
+.sound-input input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(50%, rgba(0,171,239,1)), color-stop(100%, rgba(255,21,0,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 50%, rgba(255,21,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ff1500', GradientType=1 );
+}
+
+.sound-input input[type=range]::-moz-range-track {
+  width: 100px;
+  height: 4px;
+  cursor: pointer;
+  background: #00adef;
+  border-radius: 1.3px;
+}
+
+.sound-input input[type=range]::-ms-track {
+  width: 100px;
+  height: 4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.sound-input input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border-radius: 50%;
+}
+.sound-input input[type=range]:focus::-ms-fill-lower {
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(61%, rgba(0,171,239,1)), color-stop(100%, rgba(255,21,0,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(0,171,239,1) 61%, rgba(255,21,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ff1500', GradientType=1 );
+}
+.sound-input input[type=range]::-ms-fill-upper {
+  background: #00adef;
+  border-radius: 50%;
+}
+.sound-input input[type=range]:focus::-ms-fill-upper {
+  background: #00adef;
+}
